@@ -1,0 +1,856 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1.2",
+        "title": "Culqi API",
+        "description": "## Welcome\n\nThis is a place to put general notes and extra information, for internal use.\n\nTo get started designing/documenting this API, select a version on the left. # Title\nNo Description"
+    },
+    "host": "integ-pago.culqi.com",
+    "basePath": "/api/v1",
+    "schemes": [
+        "https"
+    ],
+    "securityDefinitions": {
+        "Authorization": {
+            "name": "Authorization",
+            "type": "apiKey",
+            "in": "header"
+        }
+    },
+    "paths": {
+        "/suscripcion/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "delete": {
+                "operationId": "DELETE_suscripcion-id",
+                "summary": "Cancelar suscripción",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "codigo_comercio": {
+                                    "type": "string"
+                                },
+                                "codigo_pais": {
+                                    "type": "string"
+                                },
+                                "direccion": {
+                                    "type": "string"
+                                },
+                                "ciudad": {
+                                    "type": "string"
+                                },
+                                "telefono": {
+                                    "type": "string"
+                                },
+                                "nombre": {
+                                    "type": "string"
+                                },
+                                "correo_electronico": {
+                                    "type": "string"
+                                },
+                                "apellido": {
+                                    "type": "string"
+                                },
+                                "usuario": {
+                                    "type": "string"
+                                },
+                                "plan": {
+                                    "type": "string"
+                                },
+                                "token": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "codigo_comercio": "dDKBQ5Qm5OwU",
+                                "codigo_pais": "PE",
+                                "direccion": "Avenida Lima 123213",
+                                "ciudad": "Lima",
+                                "telefono": "1234567789",
+                                "nombre": "Jose",
+                                "correo_electronico": "jose@gmail.com",
+                                "apellido": "Perez",
+                                "usuario": "jose@gmail.com",
+                                "plan": "plan-clasico",
+                                "token": "SpjUIHwclWLQJQBW0RJXuJM2kCCAOwh3"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer <<apiKey>>"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {}
+                    }
+                },
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ]
+            }
+        },
+        "/cargos/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "operationId": "GET_cargos-id",
+                "summary": "Consultar Cargo",
+                "description": "<p>Te permite consultar el los detalles de un cargo en específico.</p>\n",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer <<apiKey>>"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "descripcion": {
+                                    "type": "string"
+                                },
+                                "monto": {
+                                    "type": "integer"
+                                },
+                                "creado": {
+                                    "type": "integer"
+                                },
+                                "pedido": {
+                                    "type": "string"
+                                },
+                                "objeto": {
+                                    "type": "string"
+                                },
+                                "moneda": {
+                                    "type": "string"
+                                },
+                                "usuario": {
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "string"
+                                },
+                                "token": {
+                                    "type": "object",
+                                    "properties": {
+                                        "objeto": {
+                                            "type": "string"
+                                        },
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "tarjeta": {
+                                            "type": "object",
+                                            "properties": {
+                                                "marca": {
+                                                    "type": "string"
+                                                },
+                                                "numero": {
+                                                    "type": "string"
+                                                },
+                                                "bin": {
+                                                    "type": "string"
+                                                },
+                                                "apellido": {
+                                                    "type": "string"
+                                                },
+                                                "nombre": {
+                                                    "type": "string"
+                                                },
+                                                "emisor": {
+                                                    "type": "string"
+                                                },
+                                                "pais": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "examples": {
+                            "application/json": {
+                                "descripcion": "Venta de prueba",
+                                "monto": 200,
+                                "creado": 1481752155218,
+                                "pedido": "123456789",
+                                "objeto": "cargo",
+                                "moneda": "PEN",
+                                "usuario": "71701956",
+                                "id": "BCd1oVn460lHdYfkEq90kK87",
+                                "token": {
+                                    "objeto": "token",
+                                    "id": "hdtEvnu5E42BOL6YMtmV5keqLj26n0I1",
+                                    "tarjeta": {
+                                        "marca": "Visa",
+                                        "numero": "444433******1111",
+                                        "bin": "444433",
+                                        "apellido": "Vargas",
+                                        "nombre": "Stephan",
+                                        "emisor": "WELLS FARGO BANK, N.A.",
+                                        "pais": "PE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ]
+            }
+        },
+        "/cargos/{cargoId}/devolver": {
+            "parameters": [
+                {
+                    "name": "cargoId",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "post": {
+                "operationId": "POST_cargos-cargoId-devolver",
+                "summary": "Devolver cargo",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "numero_pedido": {
+                                    "type": "string"
+                                },
+                                "monto": {
+                                    "type": "string",
+                                    "description": "Puede ser el monto total o parcial del cargo."
+                                }
+                            },
+                            "required": [
+                                "numero_pedido",
+                                "monto"
+                            ],
+                            "example": {
+                                "codigo_comercio": "demo",
+                                "numero_pedido": "venta_000000028",
+                                "monto": "100"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer <<apiKey>>"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {}
+                    }
+                },
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ]
+            }
+        },
+        "/tokens": {
+            "post": {
+                "operationId": "POST_tokens",
+                "summary": "Crear Token",
+                "tags": [
+                    "Tokens"
+                ],
+                "description": "<p>Crea un token que contiene los detalles de una tarjeta de crédito o débito. <strong>ATENCIÓN</strong>: Este token debe ser generado solamente con el <a target=\"_blank\" href=\"\" class=\"undefined\">CULQI.JS</a> debido a que la información sensible de las tarjetas no puede pasar por tus servidores por motivos de seguridad.</p>\n",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "correo_electronico": {
+                                    "type": "string"
+                                },
+                                "nombre": {
+                                    "type": "string"
+                                },
+                                "apellido": {
+                                    "type": "string"
+                                },
+                                "numero": {
+                                    "type": "integer"
+                                },
+                                "cvv": {
+                                    "type": "integer"
+                                },
+                                "m_exp": {
+                                    "type": "integer"
+                                },
+                                "a_exp": {
+                                    "type": "integer"
+                                },
+                                "guardar": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "example": {
+                                "correo_electronico": "wmuro@me.com",
+                                "nombre": "William",
+                                "apellido": "Muro",
+                                "numero": 4444333322221111,
+                                "cvv": 123,
+                                "m_exp": 9,
+                                "a_exp": 2019,
+                                "guardar": true
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer <<CodigoComercio>>"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "correo_electronico": {
+                                    "type": "string"
+                                },
+                                "objeto": {
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "string"
+                                },
+                                "tarjeta": {
+                                    "type": "object",
+                                    "properties": {
+                                        "marca": {
+                                            "type": "string"
+                                        },
+                                        "numero": {
+                                            "type": "string"
+                                        },
+                                        "bin": {
+                                            "type": "string"
+                                        },
+                                        "apellido": {
+                                            "type": "string"
+                                        },
+                                        "nombre": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "fecha_creacion": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "examples": {
+                            "application/json": {
+                                "correo_electronico": "wmuro@me.com",
+                                "objeto": "token",
+                                "id": "3wioYXBslSLe1EFdAkXLb6kKDbC0RNeh",
+                                "tarjeta": {
+                                    "marca": "MasterCard",
+                                    "numero": "537985******3122",
+                                    "bin": "537985",
+                                    "apellido": "Muro",
+                                    "nombre": "William"
+                                },
+                                "fecha_creacion": 1470334815810
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cargos": {
+            "post": {
+                "operationId": "POST_cargos",
+                "summary": "Crear cargo",
+                "tags": [
+                    "Cargos"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "token": {
+                                    "type": "string",
+                                    "description": "Token de tarjeta creado anteriormente."
+                                },
+                                "moneda": {
+                                    "type": "string",
+                                    "description": "Código de la moneda en tres letras (Formato [ISO 4217](https://es.wikipedia.org/wiki/ISO_4217)). p. ej: PEN o USD",
+                                    "minLength": 3,
+                                    "maxLength": 3
+                                },
+                                "monto": {
+                                    "type": "integer",
+                                    "description": "Monto de la venta o cargo. Sin punto decimal. p. ej: 199.00 sería 19900",
+                                    "minimum": 1,
+                                    "exclusiveMinimum": true,
+                                    "maximum": 99999999,
+                                    "exclusiveMaximum": true
+                                },
+                                "descripcion": {
+                                    "type": "string",
+                                    "description": "Una descripción de la breve sobre el/los producto(s) o servicio(s) que se están vendiendo.",
+                                    "minLength": 5,
+                                    "maxLength": 80
+                                },
+                                "pedido": {
+                                    "type": "string",
+                                    "description": "Identificador de la orden o pedido, debe ser único por cargo. p. ej:  P000007, P000008",
+                                    "minLength": 5,
+                                    "maxLength": 80
+                                },
+                                "codigo_pais": {
+                                    "type": "string",
+                                    "description": "Código [ISO-3166-1 Alfa 2](https://es.wikipedia.org/wiki/ISO_3166-1) del país del cliente. p. ej: PE (Perú)",
+                                    "minLength": 2,
+                                    "maxLength": 2
+                                },
+                                "ciudad": {
+                                    "type": "string",
+                                    "description": "Ciudad del cliente. p. ej: Lima ",
+                                    "minLength": 2,
+                                    "maxLength": 30
+                                },
+                                "usuario": {
+                                    "type": "string",
+                                    "description": "Identificador del ciente, podría ser su DNI o correo. p. ej: 71702955",
+                                    "minLength": 2,
+                                    "maxLength": 15
+                                },
+                                "direccion": {
+                                    "type": "string",
+                                    "description": "Dirección del cliente. ",
+                                    "minLength": 5,
+                                    "maxLength": 100
+                                },
+                                "telefono": {
+                                    "type": "integer",
+                                    "description": "Número de teléfono del cliente."
+                                },
+                                "nombres": {
+                                    "type": "string",
+                                    "description": "Nombres del cliente.",
+                                    "minLength": 2,
+                                    "maxLength": 50
+                                },
+                                "apellidos": {
+                                    "type": "string",
+                                    "description": "Apellidos del cliente. ",
+                                    "minLength": 2,
+                                    "maxLength": 5
+                                },
+                                "correo_electronico": {
+                                    "type": "string",
+                                    "description": "Dirección de correo electrónico del cliente. ",
+                                    "format": "email"
+                                }
+                            },
+                            "required": [
+                                "token",
+                                "moneda",
+                                "monto",
+                                "descripcion",
+                                "pedido",
+                                "codigo_pais",
+                                "ciudad",
+                                "usuario",
+                                "direccion",
+                                "telefono",
+                                "nombres",
+                                "apellidos",
+                                "correo_electronico"
+                            ],
+                            "example": {
+                                "token": "vVhhnxxbNpFG8cfEAwhtTfK4g8sf7oOi",
+                                "moneda": "PEN",
+                                "monto": 19900,
+                                "descripcion": "Venta de prueba",
+                                "pedido": "11213351",
+                                "codigo_pais": "PE",
+                                "ciudad": "Lima",
+                                "usuario": "71701956",
+                                "direccion": "Avenida Lima 1232",
+                                "telefono": 12313123,
+                                "nombres": "Will",
+                                "apellidos": "Muro",
+                                "correo_electronico": "wmuro@me.com"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer <<apiKey>>"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "objeto": {
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "string"
+                                },
+                                "monto": {
+                                    "type": "integer"
+                                },
+                                "moneda": {
+                                    "type": "string"
+                                },
+                                "creado": {
+                                    "type": "integer"
+                                },
+                                "pedido": {
+                                    "type": "string"
+                                },
+                                "descripcion": {
+                                    "type": "string"
+                                },
+                                "usuario": {
+                                    "type": "string"
+                                },
+                                "token": {
+                                    "type": "object",
+                                    "properties": {
+                                        "objeto": {
+                                            "type": "string"
+                                        },
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "tarjeta": {
+                                            "type": "object",
+                                            "properties": {
+                                                "marca": {
+                                                    "type": "string"
+                                                },
+                                                "numero": {
+                                                    "type": "string"
+                                                },
+                                                "bin": {
+                                                    "type": "string"
+                                                },
+                                                "apellido": {
+                                                    "type": "string"
+                                                },
+                                                "nombre": {
+                                                    "type": "string"
+                                                },
+                                                "emisor": {
+                                                    "type": "string"
+                                                },
+                                                "pais": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "examples": {
+                            "application/json": {
+                                "objeto": "cargo",
+                                "id": "m7Sa5y74GN5ctuBR3Gwh2Tgp",
+                                "monto": 19900,
+                                "moneda": "PEN",
+                                "creado": 1471981451117,
+                                "pedido": "112hhh89133567699",
+                                "descripcion": "Venta de prueba",
+                                "usuario": "jon@gmail.com",
+                                "token": {
+                                    "objeto": "token",
+                                    "id": "zvq4CbiiIRLQ16nCPfElF7EsI9SuEmsb",
+                                    "tarjeta": {
+                                        "marca": "Visa",
+                                        "numero": "411111******1111",
+                                        "bin": "411111",
+                                        "apellido": "Muro",
+                                        "nombre": "William",
+                                        "emisor": "JPMORGAN CHASE BANK, N.A.",
+                                        "pais": "US"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ]
+            }
+        },
+        "/planes": {
+            "post": {
+                "operationId": "POST_planes",
+                "summary": "Crear Plan",
+                "tags": [
+                    "Planes"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "codigo_comercio": {
+                                    "type": "string"
+                                },
+                                "moneda": {
+                                    "type": "string"
+                                },
+                                "monto": {
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "string"
+                                },
+                                "periodo": {
+                                    "type": "string"
+                                },
+                                "nombre": {
+                                    "type": "string"
+                                },
+                                "intervalo": {
+                                    "type": "integer"
+                                },
+                                "gracia": {
+                                    "type": "integer"
+                                },
+                                "gracia_medida": {
+                                    "type": "string"
+                                },
+                                "ciclos": {
+                                    "type": "integer"
+                                }
+                            },
+                            "example": {
+                                "codigo_comercio": "X1QjlYMBBSV8",
+                                "moneda": "PEN",
+                                "monto": "1000",
+                                "id": "plan-12345",
+                                "periodo": "dias",
+                                "nombre": "Plan de prueba",
+                                "intervalo": 2,
+                                "gracia": 5,
+                                "gracia_medida": "dias",
+                                "ciclos": 12
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer <<apiKey>>"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {}
+                    }
+                },
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ]
+            }
+        },
+        "/suscripciones": {
+            "post": {
+                "operationId": "POST_suscripciones",
+                "summary": "Crear suscripción",
+                "tags": [
+                    "Suscripciones"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "token": {
+                                    "type": "string"
+                                },
+                                "codigo_pais": {
+                                    "type": "string"
+                                },
+                                "direccion": {
+                                    "type": "string"
+                                },
+                                "ciudad": {
+                                    "type": "string"
+                                },
+                                "usuario": {
+                                    "type": "string"
+                                },
+                                "telefono": {
+                                    "type": "integer"
+                                },
+                                "nombre": {
+                                    "type": "string"
+                                },
+                                "apellido": {
+                                    "type": "string"
+                                },
+                                "correo_electronico": {
+                                    "type": "string"
+                                },
+                                "plan_id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "token",
+                                "codigo_pais",
+                                "direccion",
+                                "ciudad",
+                                "usuario",
+                                "telefono",
+                                "nombre",
+                                "apellido",
+                                "correo_electronico",
+                                "plan_id"
+                            ],
+                            "example": {
+                                "token": "SpjUIHwclWLQJQBW0RJXuJM2kCCAOwh3",
+                                "codigo_pais": "PE",
+                                "direccion": "Avenida Lima 123213",
+                                "ciudad": "Lima",
+                                "usuario": "soporteculqi",
+                                "telefono": 1234567789,
+                                "nombre": "Jon",
+                                "apellido": "Doe",
+                                "correo_electronico": "soporte@culqi.com",
+                                "plan_id": "plan-basico"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer <<apiKey>>"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {}
+}
