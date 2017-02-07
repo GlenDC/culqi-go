@@ -426,7 +426,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ]
             }
         },
         "/cargos": {

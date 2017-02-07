@@ -28,7 +28,7 @@ POSTTokens crears token
 <p>Crea un token que contiene los detalles de una tarjeta de crédito o débito. <strong>ATENCIÓN</strong>: Este token debe ser generado solamente con el <a target="_blank" href="" class="undefined">CULQI.JS</a> debido a que la información sensible de las tarjetas no puede pasar por tus servidores por motivos de seguridad.</p>
 
 */
-func (a *Client) POSTTokens(params *POSTTokensParams) (*POSTTokensOK, error) {
+func (a *Client) POSTTokens(params *POSTTokensParams, authInfo runtime.ClientAuthInfoWriter) (*POSTTokensOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPOSTTokensParams()
@@ -43,6 +43,7 @@ func (a *Client) POSTTokens(params *POSTTokensParams) (*POSTTokensOK, error) {
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &POSTTokensReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
