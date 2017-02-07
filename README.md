@@ -1,4 +1,7 @@
-# culqi-go v1.2
+# culqi-go
+
+[![GitHub release](https://img.shields.io/github/release/glendc/culqi-go.svg)](https://github.com/GlenDC/culqi-go/releases)
+[![license](https://img.shields.io/github/license/glendc/culqi-go.svg)](https://github.com/GlenDC/culqi-go/blob/master/LICENSE)
 
 culqi-go es una biblioteca que permite integrar la pasarela de pagos CULQI
 
